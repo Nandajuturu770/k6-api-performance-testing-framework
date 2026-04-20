@@ -9,7 +9,7 @@ const apiData = getCSVData(folderPath.APIS_DATA_PATH);
 export const options = {
 
     vus: apiData.length,
-    duration: '5s',
+    // duration: '5s',
 
 };
 
@@ -19,13 +19,16 @@ export const options = {
 export default function () {
 
     console.log("API Performance Testing Started...");
-    const api = apiData[__ITER % apiData.length];
-    console.log(`URL :: ${api.url} \nMethod :: ${api.method}`);
-    console.log(`Auth Required: ${api.authRequired} \nPayload :: ${JSON.stringify(api.payload)}`);
-    console.log(`Expected Status :: ${api.expectedStatus} \nExpected Response Time: ${api.responseTime}ms`);
-    const response = callAPI(api);
-    validate(api, response);
-    sleep(1);
+    console.log(`Total number of APIs is ${apiData.length}`);
+    for (let i = 0; i < apiData.length; i++) {
+        const api = apiData[i];
+        console.log(`URL :: ${api.url} \nMethod :: ${api.method}`);
+        console.log(`Auth Required: ${api.authRequired} \nPayload :: ${JSON.stringify(api.payload)}`);
+        console.log(`Expected Status :: ${api.expectedStatus} \nExpected Response Time: ${api.responseTime}ms`);
+        const response = callAPI(api);
+        validate(api, response);
+        sleep(1);
+    }
 
 }
 

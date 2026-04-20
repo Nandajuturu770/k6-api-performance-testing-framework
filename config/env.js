@@ -1,4 +1,4 @@
-const env = __ENV.ENV || 'PROD';
+export const env = 'PROD';
 
 /**
  * Configuration file for school specified header configurations for API requests.

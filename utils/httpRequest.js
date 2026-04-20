@@ -1,6 +1,7 @@
 import http from 'k6/http';
 import { headersWithoutToken, setHeaders } from '../config/headers.js';
 import { getToken } from '../config/configPath.js';
+import { env } from '../config/env.js';
 
 /**
  * This function is used for making API calls based on the provided API configuration.

@@ -1,4 +1,4 @@
-import { headerConfig } from './env.js';
+import { headerConfig,} from './env.js';
 
 const origin = headerConfig.ORIGIN;
 const referer = headerConfig.REFERER;
