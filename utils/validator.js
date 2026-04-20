@@ -10,8 +10,8 @@ export function validate(api, response) {
     check(response, {
         [`${api.name} - status ${api.expectedStatus}`]: (r) =>
             r.status === Number(api.expectedStatus),
-        [`${api.name} - response time < ${api.threshold}`]: (r) =>
-            r.timings.duration < Number(api.threshold),
+        [`${api.name} - response time < ${api.responseTime}`]: (r) =>
+            r.timings.duration < Number(api.responseTime),
     });
     
 }

@@ -2,8 +2,6 @@ import http from 'k6/http';
 import { headersWithoutToken, setHeaders } from '../config/headers.js';
 import { getToken } from '../config/configPath.js';
 
-const env = __ENV.ENV || 'nprd';
-
 /**
  * This function is used for making API calls based on the provided API configuration.
  * @param {api} api- An object containing the all API details.

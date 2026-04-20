@@ -8,8 +8,8 @@ import { getCSVData } from '../utils/csvParse.js';
 const apiData = getCSVData(folderPath.APIS_DATA_PATH);
 export const options = {
 
-    vus: 1,
-    duration: '1s',
+    vus: apiData.length,
+    duration: '5s',
 
 };
 
@@ -28,17 +28,16 @@ export default function () {
     sleep(1);
 
 }
+
 /**
  * This function handles the summary of the test execution and generates an HTML report with a timestamped filename.
  * @param {*} data - The data object containing the results of the test execution.
  * @returns {Object} An object containing the filename and content of the generated HTML report.
  */
 export function handleSummary(data) {
-
     const now = new Date();
     const formattedTime = now.toISOString().replace(/[:.]/g, '-');
     return {
         [`../reports/report_${formattedTime}.html`]: htmlReport(data),
     };
-
 }

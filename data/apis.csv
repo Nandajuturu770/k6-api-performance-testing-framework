@@ -1,2 +1,2 @@
-name,method,url,payload,expectedStatus,responseTime
-auth,POST,https://auth.thetopschool.com/api/v1/auth/login,"{\userName\"":\""navanitha01\"",\""password\"":\""Test@123\"",\""rememberMe\"":true,\""userRoleId\"":3,\""deviceType\"":\""Web\"",\""organizationId\"":null}""",201,500
+name,method,url,authRequired,expectedStatus,responseTime,payload
+auth,post,https://auth.thetopschool.com/api/v1/auth/login,false,201,1500,"{""userName"":""nttprmuser"",""password"":""Test@12345"",""rememberMe"":false,""userRoleId"":1,""deviceType"":""Web"",""organizationId"":null}"

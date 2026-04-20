@@ -2,8 +2,8 @@
  * Configuration file for folder paths and tokens
  */
 export const folderPath = {
-    APIS_DATA_PATH: '../data/topschoolapis.csv',
-    TOP_SCHOOLS_APIS_PATH: '../data/apis.csv',
+    TOP_SCHOOLS_APIS_PATH : '../data/topschoolapis.csv',
+    APIS_DATA_PATH: '../data/apis.csv',
 }
 
 /**
