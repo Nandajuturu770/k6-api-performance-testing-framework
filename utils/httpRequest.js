@@ -1,8 +1,7 @@
 import http from 'k6/http';
 import { headersWithoutToken, setHeaders } from '../config/headers.js';
 import { getToken } from '../config/configPath.js';
-
-const env = __ENV.ENV || 'nprd';
+import { env } from '../config/env.js';
 
 /**
  * This function is used for making API calls based on the provided API configuration.
@@ -11,13 +10,16 @@ const env = __ENV.ENV || 'nprd';
  * @throws Will throw an error if the HTTP method is unsupported.
  */
 export function callAPI(api) {
-    
+
     let response;
     const method = (api.method || '').toLowerCase();
     const reqBody = api.payload ? JSON.stringify(api.payload) : null;
     const params = {
-        headers: api.authRequired == true ? JSON.parse(setHeaders(getToken(env))) : JSON.parse(headersWithoutToken),
+        headers: api.authRequired === "true" ? JSON.parse(setHeaders(getToken(env))) : JSON.parse(headersWithoutToken),
     };
+
+    console.log("Headers of API:", JSON.stringify(params.headers, null, 2));
+    console.log("Payload of API:", JSON.stringify(api.payload, null, 2));
 
     switch (method) {
         case 'get':
