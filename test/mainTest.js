@@ -38,8 +38,16 @@ export default function () {
  * @returns {Object} An object containing the filename and content of the generated HTML report.
  */
 export function handleSummary(data) {
+    
     const now = new Date();
-    const formattedTime = now.toISOString().replace(/[:.]/g, '-');
+    const day = String(now.getDate()).padStart(2, '0');
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const year = now.getFullYear();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const formattedTime = `${year}-${month}-${day}_${hours}-${minutes}-${seconds}`;
+
     return {
         [`../reports/report_${formattedTime}.html`]: htmlReport(data),
     };

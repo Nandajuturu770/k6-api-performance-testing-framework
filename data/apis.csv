@@ -1,6 +1,6 @@
 name,method,url,authRequired,expectedStatus,responseTime,payload
 auth,post,https://auth.thetopschool.com/api/v1/auth/login,false,201,1500,"{""userName"":""nttprmuser"",""password"":""Test@12345"",""rememberMe"":false,""userRoleId"":1,""deviceType"":""Web"",""organizationId"":null}"
-getDashboard,get,https://erpmastersuite.thetopschool.com/ngw/api/1.0.0/notification/dashboard,true,201,1000,""
-usersAchievements,get,https://erpmastersuite.thetopschool.com/api/1.0.0/gamification/admin/usersAchievements?userRoleId=3,true,201,1500,"{""userRoleId""=3}"
-instituteDetails,get,https://sa.thetopschool.com/api/v1/schoolAdmin/instituteDetails,true,304,1000,""
+getDashboard,get,https://erpmastersuite.thetopschool.com/ngw/api/1.0.0/notification/dashboard,true,200,1000,""
+usersAchievements,get,https://erpmastersuite.thetopschool.com/api/1.0.0/gamification/admin/usersAchievements?userRoleId=3,true,200,1500,"{""userRoleId""=3}"
+instituteDetails,get,https://sa.thetopschool.com/api/v1/schoolAdmin/instituteDetails,true,200,1000,""
 topPerformerList,post,https://sa.thetopschool.com/api/v1/admin/topPerformerList,true,201,1000,"{""userType"": ""Student"", ""gradeId"": """", ""userId"": 1}"

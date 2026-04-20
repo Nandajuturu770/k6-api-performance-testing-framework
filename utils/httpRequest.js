@@ -10,13 +10,16 @@ import { env } from '../config/env.js';
  * @throws Will throw an error if the HTTP method is unsupported.
  */
 export function callAPI(api) {
-    
+
     let response;
     const method = (api.method || '').toLowerCase();
     const reqBody = api.payload ? JSON.stringify(api.payload) : null;
     const params = {
-        headers: api.authRequired == true ? JSON.parse(setHeaders(getToken(env))) : JSON.parse(headersWithoutToken),
+        headers: api.authRequired === "true" ? JSON.parse(setHeaders(getToken(env))) : JSON.parse(headersWithoutToken),
     };
+
+    console.log("Headers of API:", JSON.stringify(params.headers, null, 2));
+    console.log("Payload of API:", JSON.stringify(api.payload, null, 2));
 
     switch (method) {
         case 'get':
