@@ -8,8 +8,9 @@ import { getCSVData } from '../utils/csvParse.js';
 const apiData = getCSVData(folderPath.APIS_DATA_PATH);
 export const options = {
 
-    vus: apiData.length,
-    // duration: '5s',
+    vus: 30,
+    iteration: 5,
+    duration: '30s',
 
 };
 
