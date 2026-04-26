@@ -1,13 +1,17 @@
-import { headerConfig,} from './env.js';
+import {HEADER_CONFIG_ORIGIN, HEADER_CONFIG_REFERER, HEADER_CONFIG_X_TENANT_ID, AUTH_TOKEN} from '../env.js';
 
-const origin = headerConfig.ORIGIN;
-const referer = headerConfig.REFERER;
-const xTenantId = headerConfig.X_TENANT_ID;
+/**
+ * The values for origin, referer, xTenantId, and token are imported from the environment variables defined in the env.js file.
+ */
+const origin = HEADER_CONFIG_ORIGIN;
+const referer = HEADER_CONFIG_REFERER;
+const xTenantId = HEADER_CONFIG_X_TENANT_ID;
+const token = AUTH_TOKEN;
 
 /**
  * Configuration file for API headers, including a function to set headers with an optional token.
  */
-export const headersWithoutToken = JSON.stringify({
+export const setHeadersWithoutToken = JSON.stringify({
     'Content-Type': 'application/json',
     'Accept': 'application/json',
     'User-Agent': 'Mozilla/5.0',
@@ -17,12 +21,9 @@ export const headersWithoutToken = JSON.stringify({
 });
 
 /**
- * This function sets the headers for API requests, including the Authorization header if a token is provided.
- * @param {String} token - The authentication token to be included in the headers.
- * @returns {JSON.stringifytring} - A JSON stringified object containing the headers for the API request.
+ * Configuration for headers when an authentication token is required, including the Authorization header with the Bearer token.
  */
-export function setHeaders(token) {
-    return JSON.stringify({
+export const setHeadersWithToken = JSON.stringify({
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'User-Agent': 'Mozilla/5.0',
@@ -31,4 +32,3 @@ export function setHeaders(token) {
         'X-Tenant-Id': xTenantId,
         'Authorization': `Bearer ${token}`
     });
-}

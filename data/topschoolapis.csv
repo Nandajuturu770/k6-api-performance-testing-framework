@@ -1,2 +1,2 @@
 name,method,url,authRequired,expectedStatus,responseTime,payload
-auth,post,https://auth.nprd.topschool.co.in/api/v1/auth/login,false,200,1500,"{""userName"":""manikantaK"",""password"":""Test@12345"",""rememberMe"":false,""userRoleId"":1,""deviceType"":""Web"",""organizationId"":null}"
+auth,post,https://auth.thetopschool.com/api/v1/auth/login,false,201,1500,"{""userName"":""nttprmuser"",""password"":""Test@12345"",""rememberMe"":false,""userRoleId"":1,""deviceType"":""Web"",""organizationId"":null}"

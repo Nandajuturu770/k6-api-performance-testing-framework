@@ -1,7 +1,5 @@
 import http from 'k6/http';
-import { headersWithoutToken, setHeaders } from '../config/headers.js';
-import { getToken } from '../config/configPath.js';
-import { env } from '../config/env.js';
+import { setHeadersWithToken, setHeadersWithoutToken } from '../config/headers.js';
 
 /**
  * This function is used for making API calls based on the provided API configuration.
@@ -15,7 +13,7 @@ export function callAPI(api) {
     const method = (api.method || '').toLowerCase();
     const reqBody = api.payload ? JSON.stringify(api.payload) : null;
     const params = {
-        headers: api.authRequired === "true" ? JSON.parse(setHeaders(getToken(env))) : JSON.parse(headersWithoutToken),
+        headers: api.authRequired === "true" ? JSON.parse(setHeadersWithToken) : JSON.parse(setHeadersWithoutToken),
     };
 
     console.log("Headers of API:", JSON.stringify(params.headers, null, 2));
