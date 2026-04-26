@@ -36,7 +36,8 @@ clean EVERYTHING : docker system prune -a --volumes -f
 - Start Ports : docker-compose up -d
 1. Build connection between K6 to Prometheus Database : set K6_PROMETHEUS_RW_SERVER_URL=http://localhost:9090/api/v1/write
 2. Save History : set K6_PROMETHEUS_RW_TREND_AS_NATIVE_HISTOGRAM=true
-3. Run Apis : k6 run --out experimental-prometheus-rw test/mainTest.js
+3. Set File Path : set CSV_PATH=../data/{fileName}.csv
+4. Run Apis : k6 run --out experimental-prometheus-rw test/mainTest.js
 
 ----------------------------------------------------------------------------
 # K6 - Executors

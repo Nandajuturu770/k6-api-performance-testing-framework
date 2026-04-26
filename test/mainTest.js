@@ -5,12 +5,16 @@ import { getCSVData } from '../utils/csvParse.js';
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 import {SET_FILE_PATH} from '../env.js';
 
-const apiData = getCSVData(SET_FILE_PATH);
+const csvPath = __ENV.CSV_PATH || SET_FILE_PATH;
+
+console.log(`Using CSV file path: ${csvPath}`);
+
+const apiData = getCSVData(csvPath);
 export const options = {
 
-    vus: 5,
-    iterations: 1,
-    duration: '5s',
+    vus: apiData.length,
+    iterations: apiData.length*2,
+    duration: '30s',
 
 };
 
