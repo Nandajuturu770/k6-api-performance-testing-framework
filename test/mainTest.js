@@ -1,15 +1,20 @@
 import { callAPI } from '../utils/httpRequest.js';
 import { validate } from '../utils/validator.js';
-import { folderPath } from '../config/configPath.js';
 import { sleep } from 'k6';
-import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 import { getCSVData } from '../utils/csvParse.js';
+import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
+import {SET_FILE_PATH} from '../env.js';
 
-const apiData = getCSVData(folderPath.APIS_DATA_PATH);
+const csvPath = __ENV.CSV_PATH || SET_FILE_PATH;
+
+console.log(`Using CSV file path: ${csvPath}`);
+
+const apiData = getCSVData(csvPath);
 export const options = {
 
     vus: apiData.length,
-    // duration: '5s',
+    iterations: apiData.length*2,
+    duration: '30s',
 
 };
 
@@ -23,7 +28,7 @@ export default function () {
     for (let i = 0; i < apiData.length; i++) {
         const api = apiData[i];
         console.log(`URL :: ${api.url} \nMethod :: ${api.method}`);
-        console.log(`Auth Required: ${api.authRequired} \nPayload :: ${JSON.stringify(api.payload)}`);
+        console.log(`Auth Required: ${api.authRequired}`);
         console.log(`Expected Status :: ${api.expectedStatus} \nExpected Response Time: ${api.responseTime}ms`);
         const response = callAPI(api);
         validate(api, response);
@@ -49,6 +54,6 @@ export function handleSummary(data) {
     const formattedTime = `${year}-${month}-${day}_${hours}-${minutes}-${seconds}`;
 
     return {
-        [`../reports/report_${formattedTime}.html`]: htmlReport(data),
+        [`./reports/report_${formattedTime}.html`]: htmlReport(data),
     };
 }
