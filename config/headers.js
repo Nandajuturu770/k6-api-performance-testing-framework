@@ -3,10 +3,10 @@ import {HEADER_CONFIG_ORIGIN, HEADER_CONFIG_REFERER, HEADER_CONFIG_X_TENANT_ID, 
 /**
  * The values for origin, referer, xTenantId, and token are imported from the environment variables defined in the env.js file.
  */
-const origin = HEADER_CONFIG_ORIGIN;
-const referer = HEADER_CONFIG_REFERER;
-const xTenantId = HEADER_CONFIG_X_TENANT_ID;
-const token = AUTH_TOKEN;
+const origin = __ENV.HEADER_ORIGIN || HEADER_CONFIG_ORIGIN;
+const referer = __ENV.HEADER_REFERER || HEADER_CONFIG_REFERER;
+const xTenantId = __ENV.X_TENANT_ID || HEADER_CONFIG_X_TENANT_ID;
+const token = __ENV.AUTH_TOKEN || AUTH_TOKEN;
 
 /**
  * Configuration file for API headers, including a function to set headers with an optional token.
