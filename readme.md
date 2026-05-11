@@ -14,7 +14,7 @@ KEY FEATURES:
 
 TECHNOLOGY STACK:
 ----------------
-- k6 (v0.40+) -    Load testing tool
+- k6 (v0.40+) - Load testing tool
 - JavaScript  - Test scripting
 - Prometheus  - Metrics storage
 - Grafana     - Visualization
