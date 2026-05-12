@@ -25,4 +25,4 @@ export const FILE_PATHS = {
  * File path for API data for testing.
  * Note: The file path should be updated according to the location of the CSV file containing the API data for testing.
  */
-export const SET_FILE_PATH = FILE_PATHS.TOP_SCHOOLS_APIS_PATH;
+export const SET_FILE_PATH = FILE_PATHS.APIS_DATA_PATH;
