@@ -240,3 +240,6 @@ set K6_PROMETHEUS_RW_SERVER_URL=http://localhost:9090/api/v1/write && .\k6.exe r
 
 # Ramping Arrival Rate
 set K6_PROMETHEUS_RW_SERVER_URL=http://localhost:9090/api/v1/write && .\k6.exe run -o xk6-prometheus-rw --stage 1m:100 --stage 3m:500 --stage 1m:0 --rps-start 10 --max-vus 200 script.js
+
+# Set Values from the Terminal
+set CSV_PATH=./data/apis.csv

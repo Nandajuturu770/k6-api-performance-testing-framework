@@ -29,6 +29,9 @@ export function callAPI(api) {
         case 'put':
             response = http.put(api.url, reqBody, params);
             break;
+        case 'patch':
+            response = http.patch(api.url, reqBody, params);
+            break;
         case 'delete':
             response = http.del(api.url, reqBody, params);
             break;
